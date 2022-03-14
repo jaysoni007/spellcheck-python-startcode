@@ -5,6 +5,7 @@
 
 import re  # Needed for splitting text with a regular expression
 import math
+import time
 # Menu w/ user input
 def menu():
     print("1. Spell Check a Word using Linear Search")
@@ -15,6 +16,38 @@ def menu():
 menu()
 
 option = int(input("Enter a number between 1 & 5: "))
+
+
+def main():
+    # Load data files into lists
+    dictionary = loadWordsFromFile("data-files/dictionary.txt")
+    aliceWords = loadWordsFromFile("data-files/AliceInWonderLand.txt")
+
+    # Print first 50 values of each list to verify contents
+    print(dictionary[0:50])
+    print(aliceWords[0:50])
+    while option != 0:
+        if option == 1:
+            # Spell Check Linear Search
+            linearWord = input("Please enter a word: ").lower()
+            startTime = time.time()
+            print(linearSearch(dictionary, linearWord))
+            print(time.time() - startTime, "secs")
+        if option == 2:
+            # Spell Check using Binary Search
+            pass
+        if option == 3:
+            # Spell Check AIW using Linear Search
+            pass
+        if option == 4:
+            # Spell Check AIW using Binary Search
+            pass
+        if option == 5:
+            print("Thanks for trying out this program!")
+            quit()
+        
+# end main()
+
 # Binary Search Function
 def binarySearch(anArray, item):
   lowerIndex = 0
@@ -34,39 +67,6 @@ def linearSearch(array, item):
     if array[i] == item:
       return i
   return -1
-
-while option != 0:
-    if option == 1:
-        # Spell Check Linear Search
-        linearWord = input("Please enter a word: ")
-        index = linearSearch(dictionary, linearWord)
-        if index in linearSearch():
-            print("Hello World")
-        pass
-    if option == 2:
-        # Spell Check using Binary Search
-        pass
-    if option == 3:
-        # Spell Check AIW using Linear Search
-        pass
-    if option == 4:
-        # Spell Check AIW using Binary Search
-        pass
-    if option == 5:
-        print("Thanks for trying out this program!")
-        quit()
-    option = int(input("Enter a number between 1 & 5: "))
-
-def main():
-    # Load data files into lists
-    dictionary = loadWordsFromFile("data-files/dictionary.txt")
-    aliceWords = loadWordsFromFile("data-files/AliceInWonderLand.txt")
-
-    # Print first 50 values of each list to verify contents
-    print(dictionary[0:50])
-    print(aliceWords[0:50])
-# end main()
-
 
 def loadWordsFromFile(fileName):
     # Read file as a string
