@@ -4,7 +4,58 @@
 # 2: aliceWords: a list containing all of the words from "AliceInWonderland.txt"
 
 import re  # Needed for splitting text with a regular expression
+import math
+# Menu w/ user input
+def menu():
+    print("1. Spell Check a Word using Linear Search")
+    print("2. Spell Check a Word using Binary Search")
+    print("3. Spell Check Alice in Wonderland using Linear Search")
+    print("4. Spell Check Alice in Wonderland using Binary Search")
+    print("5. Exit")
+menu()
 
+option = int(input("Enter a number between 1 & 5: "))
+# Binary Search Function
+def binarySearch(anArray, item):
+  lowerIndex = 0
+  upperIndex = len(anArray)-1
+  while lowerIndex <= upperIndex:
+    middleIndex = math.floor(lowerIndex + upperIndex) // 2
+    if item == anArray[middleIndex]:
+      return middleIndex
+    elif item < anArray[middleIndex]:
+      upperIndex = middleIndex - 1
+    else:
+      lowerIndex = middleIndex + 1
+  return -1
+# Linear Search Function
+def linearSearch(array, item):
+  for i in range(len(array)):
+    if array[i] == item:
+      return i
+  return -1
+
+while option != 0:
+    if option == 1:
+        # Spell Check Linear Search
+        linearWord = input("Please enter a word: ")
+        index = linearSearch(dictionary, linearWord)
+        if index in linearSearch():
+            print("Hello World")
+        pass
+    if option == 2:
+        # Spell Check using Binary Search
+        pass
+    if option == 3:
+        # Spell Check AIW using Linear Search
+        pass
+    if option == 4:
+        # Spell Check AIW using Binary Search
+        pass
+    if option == 5:
+        print("Thanks for trying out this program!")
+        quit()
+    option = int(input("Enter a number between 1 & 5: "))
 
 def main():
     # Load data files into lists
