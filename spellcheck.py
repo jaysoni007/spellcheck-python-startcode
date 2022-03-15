@@ -6,6 +6,7 @@
 import re  # Needed for splitting text with a regular expression
 import math
 import time
+from tracemalloc import start
 # Menu w/ user input
 def menu():
     print("1. Spell Check a Word using Linear Search")
@@ -24,28 +25,35 @@ def main():
     aliceWords = loadWordsFromFile("data-files/AliceInWonderLand.txt")
 
     # Print first 50 values of each list to verify contents
-    print(dictionary[0:50])
-    print(aliceWords[0:50])
+    # print(dictionary[0:50])
+    # print(aliceWords[0:50])
     while option != 0:
+        
         if option == 1:
             # Spell Check Linear Search
             linearWord = input("Please enter a word: ").lower()
             startTime = time.time()
             print(linearSearch(dictionary, linearWord))
             print(time.time() - startTime, "secs")
-        if option == 2:
-            # Spell Check using Binary Search
+        elif option == 2:
+            binaryWord = input("Please enter a word: ").lower()
+            print(binarySearch(dictionary, binaryWord))
+            startTime = time.time()
+            print(time.time() - startTime, "secs")
             pass
-        if option == 3:
+        elif option == 3:
             # Spell Check AIW using Linear Search
+
+
+
+
             pass
-        if option == 4:
+        elif option == 4:
             # Spell Check AIW using Binary Search
             pass
-        if option == 5:
+        else:
             print("Thanks for trying out this program!")
             quit()
-        
 # end main()
 
 # Binary Search Function
