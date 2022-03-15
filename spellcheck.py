@@ -43,11 +43,14 @@ def main():
             pass
         elif option == 3:
             # Spell Check AIW using Linear Search
-
-
-
-
-            pass
+          count = 0
+          startTime = time.time()
+          for i in aliceWords():
+            y = (linearSearch(dictionary, i))
+            if y == "not in list":
+              count += 1
+            print(count)
+            print(time.time() - startTime, "seconds")
         elif option == 4:
             # Spell Check AIW using Binary Search
             pass
