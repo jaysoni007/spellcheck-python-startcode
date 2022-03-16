@@ -6,7 +6,7 @@
 import re  # Needed for splitting text with a regular expression
 import math
 import time
-from tracemalloc import start
+import random
 # Menu w/ user input
 def menu():
     print("1. Spell Check a Word using Linear Search")
@@ -42,15 +42,15 @@ def main():
             print(time.time() - startTime, "secs")
             pass
         elif option == 3:
-            # Spell Check AIW using Linear Search
+          # Spell Check AIW using Linear Search
           count = 0
           startTime = time.time()
-          for i in aliceWords():
-            y = (linearSearch(dictionary, i))
-            if y == "not in list":
+          for words in aliceWords():
+            linearWord = (linearSearch(dictionary, words))
+            if linearWord == "not in list":
               count += 1
-            print(count)
-            print(time.time() - startTime, "seconds")
+          print(words)
+          print(time.time() - startTime, "secs")
         elif option == 4:
             # Spell Check AIW using Binary Search
             pass
@@ -88,7 +88,6 @@ def loadWordsFromFile(fileName):
     # Split text by one or more whitespace characters
     return re.split('\s+', textData)
 # end loadWordsFromFile()
-
 
 # Call main() to begin program
 main()
